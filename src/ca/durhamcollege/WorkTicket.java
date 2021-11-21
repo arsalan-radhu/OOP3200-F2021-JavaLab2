@@ -97,7 +97,7 @@ public class WorkTicket
                 if (day >= MIN_DAY && day <= MAX_DAY) {
                     isValid = false;
                 } else {
-                    System.out.print("\nSorry, that day was invalid. Must be between 1 and 30. Try Again.\n");
+                    System.out.print("\nDay must be between 1 and 30. Try Again!\n");
                 }
             }
             isValid = true;
@@ -113,14 +113,37 @@ public class WorkTicket
                 }
                 else
                 {
-                    System.out.print("\nSorry, that month was invalid. Must be between 1 and 12. Try Again.\n");
+                    System.out.print("\nMonth must be between 1 and 12. Try Again!\n");
                 }
             }
             isValid = true;
             System.out.printf("Month is: %d\n", month);
+
+            while(isValid)
+            {
+                System.out.print("\nPlease enter the Year: ");
+                year = keyboard.nextInt();
+                if (year >= MIN_YEAR && year <= MAX_YEAR)
+                {
+                    isValid = false;
+                }
+                else
+                {
+                    System.out.print("\nYear must be between 2000 and 2099. Try Again.\n");
+                }
+            }
+            isValid = true;
+            System.out.printf("Year is: %d\n", year);
+
+            LocalDate date;
+            date = LocalDate.of(year, month, day);
+            //    System.out.printf("The Date is: %s", date.toString());
+
+            this.date = date;
+
         }
         catch (DateTimeException dte) {
-            System.out.print("\nDATE EXCEPTION: Something went wrong, try again.");
+            System.out.print("\nUnexpected error.");
             keyboard.nextLine();
         }
     }
