@@ -86,23 +86,38 @@ public class WorkTicket
         final int MIN_DAY = 1;
         //Variables
         Scanner keyboard = new Scanner(System.in);
-        boolean dirtyFlag = true;
+        boolean isValid = true;
         int day = 0, month = 0, year = 0;
 
         try {
 
-            while (dirtyFlag) {
+            while (isValid) {
                 System.out.print("\nPlease enter the day: ");
                 day = keyboard.nextInt();
                 if (day >= MIN_DAY && day <= MAX_DAY) {
-                    dirtyFlag = false;
+                    isValid = false;
                 } else {
                     System.out.print("\nSorry, that day was invalid. Must be between 1 and 30. Try Again.\n");
                 }
             }
-            dirtyFlag = true;
+            isValid = true;
             System.out.printf("Day is: %d\n", day);
 
+            while(isValid)
+            {
+                System.out.print("\nPlease enter the month: ");
+                month = keyboard.nextInt();
+                if (month >= MIN_MONTH && month <= MAX_MONTH)
+                {
+                    isValid = false;
+                }
+                else
+                {
+                    System.out.print("\nSorry, that month was invalid. Must be between 1 and 12. Try Again.\n");
+                }
+            }
+            isValid = true;
+            System.out.printf("Month is: %d\n", month);
         }
         catch (DateTimeException dte) {
             System.out.print("\nDATE EXCEPTION: Something went wrong, try again.");
