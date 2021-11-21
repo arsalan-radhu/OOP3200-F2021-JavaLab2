@@ -147,4 +147,33 @@ public class WorkTicket
             keyboard.nextLine();
         }
     }
+
+    public String getDescription()
+    {
+        return description;
+    }
+
+    public void setDescription()
+    {
+
+        //Declarations
+        Scanner keyboard = new Scanner(System.in);
+        boolean isValid = true;
+        String description = null;
+        while(isValid)
+        {
+            System.out.print("\nEnter the reason for making a ticket: ");
+            description = keyboard.nextLine();
+            if(description.length() <= 0)
+            {
+                throw new IllegalArgumentException("Description should not be empty.");
+            }
+            else
+            {
+                this.description = description;
+                isValid = false;
+            }
+        }
+
+    }
 }
