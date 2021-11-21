@@ -1,5 +1,6 @@
 package ca.durhamcollege;
 
+import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -70,4 +71,42 @@ public class WorkTicket
 
     }
 
+    public LocalDate getDate()
+    {
+        return date;
+    }
+
+    public void setDate() {
+        //Constants
+        final int MAX_YEAR = 2099;
+        final int MIN_YEAR = 2000;
+        final int MAX_MONTH = 12;
+        final int MIN_MONTH = 1;
+        final int MAX_DAY = 30;
+        final int MIN_DAY = 1;
+        //Variables
+        Scanner keyboard = new Scanner(System.in);
+        boolean dirtyFlag = true;
+        int day = 0, month = 0, year = 0;
+
+        try {
+
+            while (dirtyFlag) {
+                System.out.print("\nPlease enter the day: ");
+                day = keyboard.nextInt();
+                if (day >= MIN_DAY && day <= MAX_DAY) {
+                    dirtyFlag = false;
+                } else {
+                    System.out.print("\nSorry, that day was invalid. Must be between 1 and 30. Try Again.\n");
+                }
+            }
+            dirtyFlag = true;
+            System.out.printf("Day is: %d\n", day);
+
+        }
+        catch (DateTimeException dte) {
+            System.out.print("\nDATE EXCEPTION: Something went wrong, try again.");
+            keyboard.nextLine();
+        }
+    }
 }
