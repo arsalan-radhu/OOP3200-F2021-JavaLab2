@@ -2,7 +2,7 @@
  * Name : Arsalan Arif Radhu
  * Student ID: 100813965
  * Date: 21 November 2021
- * Description: Main file for showing the working of the work ticket class.
+ * Description: Work ticket class file.
  */
 
 package ca.durhamcollege;
