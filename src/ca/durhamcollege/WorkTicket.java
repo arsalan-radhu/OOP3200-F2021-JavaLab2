@@ -187,6 +187,30 @@ public class WorkTicket
         this.date = null;
         this.description = null;
     }
+
+    public void SetWorkTicket()
+    {
+
+        setTicketNumber();
+        setId();
+        setDate();
+        setDescription();
+    }
+
+    @Override
+    public String toString()
+    {
+        String ticketString = "";
+        ticketString += "\n========================================\n";
+        ticketString += "Ticket Number: " + (getNumber()) + "\n";
+        ticketString += "Ticket Date: " + getDate() + "\n";
+        ticketString += "Ticket ID: " + getId() + "\n";
+        ticketString += "Ticket Description: " + getDescription() + "\n";
+        ticketString += "\n========================================\n";
+
+        return ticketString;
+    }
+    
     //Object Constructor
     WorkTicket(@NotNull WorkTicket ticket)
     {
