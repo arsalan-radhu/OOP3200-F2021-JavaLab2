@@ -1,5 +1,7 @@
 package ca.durhamcollege;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.util.Scanner;
@@ -175,5 +177,30 @@ public class WorkTicket
             }
         }
 
+    }
+
+    //Default Constructor
+    WorkTicket()
+    {
+        this.number = 0;
+        this.id = null;
+        this.date = null;
+        this.description = null;
+    }
+    //Object Constructor
+    WorkTicket(@NotNull WorkTicket ticket)
+    {
+        this.number = ticket.number;
+        this.id = ticket.id;
+        this.date = ticket.date;
+        this.description = ticket.description;
+    }
+    //Parameterized  Constructor
+    WorkTicket(int number, String id, LocalDate date, String desc)
+    {
+        this.number = number;
+        this.id = id;
+        this.date = date;
+        this.description = desc;
     }
 }
