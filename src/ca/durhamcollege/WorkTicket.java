@@ -1,3 +1,10 @@
+/*
+ * Name : Arsalan Arif Radhu
+ * Student ID: 100813965
+ * Date: 21 November 2021
+ * Description: Main file for showing the working of the work ticket class.
+ */
+
 package ca.durhamcollege;
 
 import org.jetbrains.annotations.NotNull;
@@ -8,13 +15,13 @@ import java.util.Scanner;
 
 public class WorkTicket
 {
-    //private instance variables/Attributes
+    //ATTRIBUTES
     public int number;
     public String id;
     public LocalDate date;
     public String description;
 
-    //public properties (setters/getters)
+    //PROPERTIES
     public int getNumber()
     {
         return number;
@@ -22,7 +29,7 @@ public class WorkTicket
 
     public void setTicketNumber()
     {
-        //Declarations
+        //DECLARATIONS
         Scanner keyboard = new Scanner(System.in);
         boolean isValid = true;
         int ticketNumber = 0;
@@ -30,6 +37,7 @@ public class WorkTicket
         while(isValid)
         {
             System.out.print("\nEnter a ticket number: ");
+            // Taking user input
             ticketNumber = keyboard.nextInt();
             if(ticketNumber <= 0)
             {
@@ -51,13 +59,14 @@ public class WorkTicket
 
     public void setId()
     {
-        //Declarations
+        //DECLARATIONS
         Scanner keyboard = new Scanner(System.in);
         boolean isValid = true;
         String id = null;
         while(isValid)
         {
             System.out.print("\nEnter a custom ID: ");
+            // Taking user input
             id = keyboard.nextLine();
             if (id.length() <= 0)
             {
@@ -79,14 +88,14 @@ public class WorkTicket
     }
 
     public void setDate() {
-        //Constants
+        //CONSTANTS
         final int MAX_YEAR = 2099;
         final int MIN_YEAR = 2000;
         final int MAX_MONTH = 12;
         final int MIN_MONTH = 1;
         final int MAX_DAY = 30;
         final int MIN_DAY = 1;
-        //Variables
+        //VARIABLES
         Scanner keyboard = new Scanner(System.in);
         boolean isValid = true;
         int day = 0, month = 0, year = 0;
@@ -95,6 +104,7 @@ public class WorkTicket
 
             while (isValid) {
                 System.out.print("\nPlease enter the day: ");
+                // Taking user input for the date
                 day = keyboard.nextInt();
                 if (day >= MIN_DAY && day <= MAX_DAY) {
                     isValid = false;
@@ -108,6 +118,7 @@ public class WorkTicket
             while(isValid)
             {
                 System.out.print("\nPlease enter the month: ");
+                // Taking user input for the month
                 month = keyboard.nextInt();
                 if (month >= MIN_MONTH && month <= MAX_MONTH)
                 {
@@ -124,6 +135,7 @@ public class WorkTicket
             while(isValid)
             {
                 System.out.print("\nPlease enter the Year: ");
+                // Taking user input for the year
                 year = keyboard.nextInt();
                 if (year >= MIN_YEAR && year <= MAX_YEAR)
                 {
@@ -139,7 +151,6 @@ public class WorkTicket
 
             LocalDate date;
             date = LocalDate.of(year, month, day);
-            //    System.out.printf("The Date is: %s", date.toString());
 
             this.date = date;
 
@@ -158,13 +169,14 @@ public class WorkTicket
     public void setDescription()
     {
 
-        //Declarations
+        //DECLARATIONS
         Scanner keyboard = new Scanner(System.in);
         boolean isValid = true;
         String description = null;
         while(isValid)
         {
             System.out.print("\nEnter the reason for making a ticket: ");
+            // Taking user input for the description of the issue
             description = keyboard.nextLine();
             if(description.length() <= 0)
             {
@@ -179,18 +191,8 @@ public class WorkTicket
 
     }
 
-    //Default Constructor
-    WorkTicket()
-    {
-        this.number = 0;
-        this.id = null;
-        this.date = null;
-        this.description = null;
-    }
-
     public void SetWorkTicket()
     {
-
         setTicketNumber();
         setId();
         setDate();
@@ -210,7 +212,15 @@ public class WorkTicket
 
         return ticketString;
     }
-    
+    //CONSTRUCTORS
+    WorkTicket()
+    {
+        this.number = 0;
+        this.id = null;
+        this.date = null;
+        this.description = null;
+    }
+
     //Object Constructor
     WorkTicket(@NotNull WorkTicket ticket)
     {
@@ -227,4 +237,5 @@ public class WorkTicket
         this.date = date;
         this.description = desc;
     }
+
 }
