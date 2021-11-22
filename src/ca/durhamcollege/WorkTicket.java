@@ -16,15 +16,15 @@ import java.util.Scanner;
 public class WorkTicket
 {
     //ATTRIBUTES
-    public int number;
+    public int ticketNumber;
     public String id;
     public LocalDate date;
     public String description;
 
     //PROPERTIES
-    public int getNumber()
+    public int getTicketNumber()
     {
-        return number;
+        return ticketNumber;
     }
 
     public void setTicketNumber()
@@ -45,7 +45,7 @@ public class WorkTicket
             }
             else
             {
-                this.number = ticketNumber;
+                this.ticketNumber = ticketNumber;
                 isValid = false;
             }
         }
@@ -204,7 +204,7 @@ public class WorkTicket
     {
         String ticketString = "";
         ticketString += "\n========================================\n";
-        ticketString += "Ticket Number: " + (getNumber()) + "\n";
+        ticketString += "Ticket Number: " + (getTicketNumber()) + "\n";
         ticketString += "Ticket Date: " + getDate() + "\n";
         ticketString += "Ticket ID: " + getId() + "\n";
         ticketString += "Ticket Description: " + getDescription() + "\n";
@@ -215,7 +215,7 @@ public class WorkTicket
     //CONSTRUCTORS
     WorkTicket()
     {
-        this.number = 0;
+        this.ticketNumber = 0;
         this.id = null;
         this.date = null;
         this.description = null;
@@ -224,15 +224,15 @@ public class WorkTicket
     //Object Constructor
     WorkTicket(@NotNull WorkTicket ticket)
     {
-        this.number = ticket.number;
+        this.ticketNumber = ticket.ticketNumber;
         this.id = ticket.id;
         this.date = ticket.date;
         this.description = ticket.description;
     }
     //Parameterized  Constructor
-    WorkTicket(int number, String id, LocalDate date, String desc)
+    WorkTicket(int ticketNumber, String id, LocalDate date, String desc)
     {
-        this.number = number;
+        this.ticketNumber = ticketNumber;
         this.id = id;
         this.date = date;
         this.description = desc;
